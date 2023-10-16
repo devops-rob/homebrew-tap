@@ -5,21 +5,21 @@
 class Target < Formula
   desc ""
   homepage "https://github.com/devops-rob/target-cli"
-  version "0.4.0"
+  version "1.0.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/devops-rob/target-cli/releases/download/0.4.0/target-cli_0.4.0_darwin_arm64.tar.gz"
-      sha256 "eb175055249881238b820b9f03c20495bdd69557318d00bbeaddb6696383d568"
+      url "https://github.com/devops-rob/target-cli/releases/download/1.0.0/target-cli_1.0.0_darwin_arm64.tar.gz"
+      sha256 "537c084cf4bcb6ceff3258bf8792dcaf12d5ddb6353daa3b2cf9a1e9570b6b72"
 
       def install
         bin.install "target"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/devops-rob/target-cli/releases/download/0.4.0/target-cli_0.4.0_darwin_amd64.tar.gz"
-      sha256 "f3f97768574de709ad4a92c58a22443aa406ba20730b9cf034a20fd872fbc787"
+      url "https://github.com/devops-rob/target-cli/releases/download/1.0.0/target-cli_1.0.0_darwin_amd64.tar.gz"
+      sha256 "8699a6ff1bffc5f542ff76e7429eacf253b3916facaf1c121565e17b2a719173"
 
       def install
         bin.install "target"
@@ -28,17 +28,17 @@ class Target < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/devops-rob/target-cli/releases/download/0.4.0/target-cli_0.4.0_linux_amd64.tar.gz"
-      sha256 "1e9f54a9f6f25a1f85443bbbe4f755525a76c6e77a02e8c5b671cfe20bb1b129"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/devops-rob/target-cli/releases/download/1.0.0/target-cli_1.0.0_linux_arm64.tar.gz"
+      sha256 "0227fe26f83670112e1863c50b7fcfcbf767b0e6e05b600844a8885b02bf6935"
 
       def install
         bin.install "target"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/devops-rob/target-cli/releases/download/0.4.0/target-cli_0.4.0_linux_arm64.tar.gz"
-      sha256 "84d1b1725c5ce9ce16f2c3d3e7460046513c3f6ea12463e355f857780985f237"
+    if Hardware::CPU.intel?
+      url "https://github.com/devops-rob/target-cli/releases/download/1.0.0/target-cli_1.0.0_linux_amd64.tar.gz"
+      sha256 "ddc24546dd430cf047c10c6fdbf928cf00a3e027dc9815593c39f60e5d579222"
 
       def install
         bin.install "target"
